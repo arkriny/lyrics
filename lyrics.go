@@ -18,8 +18,9 @@ import (
 )
 
 type Song struct {
-	URL string `json:"url"`
-	// Title string `json:"title"`
+	URL     string `json:"url"`
+	Artists string `json:"artist_names"`
+	Title   string `json:"title"`
 }
 
 type SearchResponse struct {
@@ -171,5 +172,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("# %s - %s\n", song.Artists, song.Title)
 	printLyrics(b)
 }
